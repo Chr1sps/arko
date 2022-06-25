@@ -1,0 +1,6 @@
+*.vscode/
+*.bmp
+mst
+*.lst
+*.o
+*errors.txt

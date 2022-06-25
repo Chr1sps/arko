@@ -1,0 +1,87 @@
+Objaśnienie argumentów funkcji i zmiennych lokalnych:
+[ebp+20] - &c
+[ebp+16] - &b
+[ebp+12] - &a
+[ebp+8] - &info
+[ebp+4] - return address
+[ebp] - stack pointer
+
+[ebp-4] - xp - GIT, GIT
+[ebp-8] - xk - GIT, GIT
+[ebp-12] - Ip (R) - GIT, GIT
+
+[ebp-16] - Ik (R) - GIT, GIT
+[ebp-20] - Ip (G) - GIT, GIT
+[ebp-24] - Ik (G) - GIT, GIT
+[ebp-28] - Ip (B) - GIT, GIT
+
+[ebp-32] - Ik (B) - GIT, GIT
+[ebp-36] - Δxp - GIT
+[ebp-40] - Δxk - GIT
+[ebp-44] - ΔIp (R) - GIT
+
+[ebp-48] - ΔIk (R) - GIT
+[ebp-52] - ΔIs (R) - LINIA
+[ebp-56] - ΔIp (G) - GIT
+[ebp-60] - ΔIk (G) - GIT
+
+[ebp-64] - ΔIs (G) - LINIA
+[ebp-68] - ΔIp (B) - GIT
+[ebp-72] - ΔIk (B) - GIT
+[ebp-76] - ΔIs (B) - LINIA
+
+[ebp-80] - Δend - GIT
+[ebp-84] - x - GIT
+[ebp-88] - y - GIT
+[ebp-92] - rev - GIT
+
+
+co się przyda w NOWEJ wersji:
+y.mix, y.max
+xp, xk
+reszta jak wyżej (oprócz rev)
+
+Nowy układ:
+[ebp+20] - &c
+[ebp+16] - &b
+[ebp+12] - &a
+[ebp+8] - &info
+[ebp+4] - return address
+[ebp] - stack pointer
+
+[ebp-4] - x
+
+[ebp-8] - y
+[ebp-12] - y.min
+[ebp-16] - y.max
+[ebp-20] - xp
+
+[ebp-24] - xk
+[ebp-28] - Δxp
+[ebp-32] - Δxk
+[ebp-36] - Δend
+
+[ebp-40] - Ip (R)
+[ebp-44] - Ik (R)
+[ebp-48] - Ip (G)
+[ebp-52] - Ik (G)
+
+[ebp-56] - Ip (B) 
+[ebp-60] - Ik (B) 
+[ebp-64] - ΔIp (R)
+[ebp-68] - ΔIk (R)
+
+[ebp-72] - ΔIs (R)
+[ebp-76] - ΔIp (G)
+[ebp-80] - ΔIk (G)
+[ebp-84] - ΔIs (G)
+
+[ebp-88] - ΔIp (B)
+[ebp-92] - ΔIk (B)
+[ebp-96] - ΔIs (B)
+[ebp-100] - width * 3
+
+[ebp-104] - flags
+[ebp-108] - Is (R)
+[ebp-112] - Is (G)
+[ebp-116] - Is (B)

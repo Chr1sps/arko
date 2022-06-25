@@ -1,0 +1,87 @@
+x86 MANUAL
+
+================================  REGISTERS  ================================
+
+8 registers:
+- EAX (accumulator)
+- ECX (iteration counter)
+- EDX (divider/product)
+- EBX
+- ESP (stack pointer)
+- EBP (frame pointer)
+- ESI
+- EDI.
+
+Register division:
+
+    |        32b        |
+    |   16b   | 8b | 8b |    
+     -----------------
+EAX |         | AH | AL | AX
+ECX |         | CH | CL | CX
+EDX |         | DH | DL | DX
+EBX |         | BH | BL | BX
+ESP |         |   SP    | 
+EBP |         |   BP    |
+ESI |         |   SI    |
+EDI |         |   DI    |
+     -----------------
+
+Function arguments in registers EBX, ECX, EDX, ESI, EDI, EBP.
+
+
+
+
+================================  INSTRUCTIONS  ================================
+
+MOVING ARGUMENTS
+
+mov a, b  -  copy b to a
+xchg a, b  -  swap a and b
+movsx a, b  -  copy b to a with 32-bit extending
+movzx a, b  -  copy b to a with 32-bit extending with zeros
+push, pop - stack operations
+bswap r32 - swap byte order in r32 registers
+
+
+ARITHMETIC AND LOGICAL
+
+inc/dec a - increment/decrement a (modify all flags except CF)
+not/neg a - negate a bitwise (not doesn't set flags)
+add/adc a, b - add/add with carry
+sub/sbb a, b - substract/substract with borrow
+cmp a, b - compare a to b, substraction without writing the result (only for flag setting)
+and/or/xor a, b - bitwise a and/or/xor b
+test a, b - bitwise a and b without writing the result (only for flag setting)
+andn a, b, c - 3-bit and with first arg negation ((~a)&b&c)
+adcx/adox a, b - unsigned addition with carry/overflow
+
+================================  STACK  ================================
+
+
+============================================
+ THE STACK - thanks to Zbigniew Szymanski
+============================================
+
+ larger addresses
+ 
+  |                               |
+  | ...                           |
+  ---------------------------------
+  | function parameter - char *nts| EBP+8
+  ---------------------------------
+  | return address                | EBP+4
+  ---------------------------------
+  | saved ebp                     | EBP, ESP
+  ---------------------------------
+  | ... here local variables      | EBP-x
+  |     when needed               |
+
+ \/                              \/
+ \/ the stack grows in this      \/
+ \/ direction                    \/
+
+ lower addresses
+
+
+============================================
